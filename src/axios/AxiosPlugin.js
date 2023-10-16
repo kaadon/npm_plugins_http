@@ -1,4 +1,5 @@
 import axios from "axios";
+
 export class AxiosPlugin {
     axiosIns
     constructor(token = null) {
@@ -24,30 +25,30 @@ export class AxiosPlugin {
             })
         this.axiosIns = axiosIns
     }
-
-    get(url, data = {}) {
+    async get(url, data = {}) {
         try {
             //逻辑代码
-            return this.axiosIns({
+            let result = await this.axiosIns({
                 url: ApiList.member.login,
                 method: 'post',
                 data,
             })
+            return Promise.resolve(result)
         } catch (e) {
-            throw new Error(e.message)
+            return Promise.reject(e)
         }
     }
-
-    post(url, data = {}) {
+    async post(url, data = {}) {
         try {
             //逻辑代码
-            return this.axiosIns({
+            let result = await this.axiosIns({
                 url: url,
                 method: 'post',
                 data,
             })
+            return Promise.resolve(result)
         } catch (e) {
-            throw new Error(e.message)
+            return Promise.reject(e)
         }
     }
 }
