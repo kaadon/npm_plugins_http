@@ -1,4 +1,4 @@
-import {AxiosPlugin} from "./axiosPlugin";
+import {default as AxiosPlugin} from "./axiosPlugin";
 export function curl(param) {
     {
         const {token, url, method, data} = param

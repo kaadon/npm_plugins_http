@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export class AxiosPlugin {
+export default class AxiosPlugin {
     axiosIns
     constructor(token = null) {
         const axiosIns = axios.create({
